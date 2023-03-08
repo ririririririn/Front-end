@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html 목록</title>
+  </head>
+  <body>
+    <h1>html 목록</h1>
+    <h2>순서가 없는 목록</h2>
+    <h3>과일 목록</h3>
+    <!-- 
+      Unordered List : 순서가 없는 목록 
+      <ul> 태그의 자식 요소로는 무조건 <li> 태그를 사용해야함
+      중첩된 목록을 사용할 때는 <li>태그 안에 다시 <ul>태그 사용
+      <ul>,<li> 모두줄바꿈이 일어나는 블록 요소이다.
+    -->
+    <ul>
+      <!-- List Item -->
+      <li>사과</li>
+      <li>
+        포도
+        <ul>
+          <li>샤인머스캣</li>
+          <li>머루포도</li>
+          <li>사파이어</li>
+        </ul>
+      </li>
+    </ul>
+<!-- Ordered List : 순서가 있는 목록 -->
+    <h3></h3>
+    <p><b>재료 : </b>레드향 1개, 아보카도 1개, 토마토 1개, 샐러드 채소 30g</p>
+    <p><b>드레싱 : </b> 올리브유 1큰술, 레몬즙 2큰술, 꿀 1큰술, 소금 약간
+      <ol type="I">
+        <li>샐러드 채소를 씻어 물기를 제거한 후 먹기 좋게 썰어서 준비합니다.</li>
+        <li>레드향과 아보카도, 토마토도 먹기 좋은 크기로 썰어 둡니다.</li>
+        <li>드레싱 재료를</li>
+        <li>볼에 샐러드 채소</li>
+      </ol>
+    </p>
+    <h4>재료준비</h4>
+    <ol type="a">
+      <li>샐러드 채소를 씻어 물기를 제거한 후 먹기 좋게 썰어서 준비합니다.</li>
+      <li>레드향과 아보카도, 토마토도 좋은 크기로 썰어 둡니다.</li>
+    </ol>
+
+    <h4>드레싱 준비</h4>
+    <ol type="a" start="3">
+      <li>드레싱 재료를</li>
+    </ol>
+    <h4>샐러드 완성</h4>
+    <ol type="a" start="4"><li>볼에 샐러드 채소와</li></ol>
+
+    <!-- 
+      dl : definition List 
+      dt : definition title
+      dd : definition data
+     -->
+
+     <dl>
+      <dt>선물용 3kg</dt>
+      <dd>소과 13~16과</dd>
+      <dd>중과 10~12과</dd>
+    </dl>
+     
+  </body>
+</html>

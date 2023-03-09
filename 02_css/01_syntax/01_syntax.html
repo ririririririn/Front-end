@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS란</title>
+    <link rel="stylesheet" href="./01_syntax.css" />
+    <style>
+      p {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      인라인 방식: 스타일을 적용하고자 하는 태그에 style 속서에 직접 지정.
+        1) 가독성 떨어짐
+        2) 재사용성이 떨어진다.
+        3) 유지보수가 힘들다.
+        4) 우선 순위가 두번째로 높기 때문에 원하는 동작을 안할 수 있다.
+      
+      <style>태그 사용 : <style> 태그 안에 css 문법에 맞게 사용.
+        1) html의 원래 기능이 아닌 스타일을 작성하기 때문에 길어짐.
+        2) 다른 html 파일에 똑같이 작성해야된다 -> 재사용성, 유지보수성이 떨어짐
+      
+      <link>태그를 사용 : 외부에 css파일을 만들고 <link>태그를 통해서 불러온다.
+        1) html파일에는 코드가 거의 필요없다.
+        2) 재사용성과 유지보수성이 뛰어나다
+    -->
+    <h1>CSS(Cascading Style Sheets)</h1>
+    <p style="color: red">
+      CSS는 HTML요소에 디자인을 더하는 스타일 정의 문서입니다.
+    </p>
+  </body>
+</html>

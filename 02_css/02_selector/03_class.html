@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bold {
+        font-weight: bold;
+      }
+      .red {
+        color: red;
+      }
+      p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>클래스(class) 선택자</h1>
+    <p class="bold" style="font-weight: lighter">
+      특정 클래스 값을 가진 요소들을 선택한다
+    </p>
+    <p>클래스 class 속성을 통해서 지정할 수 있다.</p>
+    <p class="bold">
+      클래스 선택자는 <span class="red">'.클래스명'</span> 의 형태로 작성한다.
+    </p>
+    <p>같은 클래스명을 여러 요소들이 가질 수 있다.</p>
+    <p class="bold red">하나의 요소가 여러 클래스명을 가질 수 있다</p>
+
+    <!-- 우선 순위 -->
+    <p>클래스 : 10점</p>
+    <p>타입 선택자 : 1점</p>
+    <p>인라인 선언 방식 : 1000점</p>
+    <p></p>
+  </body>
+</html>

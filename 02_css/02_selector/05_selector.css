@@ -1,0 +1,9 @@
+.fruits {
+}
+.fruits li::after {
+  content: "new";
+  background-color: red;
+  padding: 0 5px;
+  color: white;
+  font-size: 0.8em;
+}

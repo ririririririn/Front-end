@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float 2단 레이아웃</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+        color: rgb(75, 67, 67);
+      }
+      .header {
+        background-color: beige;
+        height: 120px;
+      }
+      .side_bar {
+        background-color: tomato;
+        width: 250px;
+        height: 600px;
+        float: left;
+      }
+      .main {
+        background-color: skyblue;
+        width: 800px;
+        height: 600px;
+        float: left;
+      }
+      .side_bar_right {
+        width: 150px;
+        height: 600px;
+        float: right;
+        background-color: palevioletred;
+      }
+      .footer {
+        background-color: gainsboro;
+        height: 100px;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header"><h2>사이트제목</h2></header>
+      <aside class="side_bar"><h3>사이드바</h3></aside>
+      <main class="main">
+        <h3>본문</h3>
+      </main>
+      <aside class="side_bar_right">사이드바</aside>
+      <footer class="footer"><h3>푸터</h3></footer>
+    </div>
+  </body>
+</html>

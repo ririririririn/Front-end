@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Float</title>
+    <style>
+      .dog {
+        float: right;
+      }
+      .dog2 {
+        float: left;
+      }
+
+      .content {
+        clear: both;
+      }
+      body {
+      }
+      /* 인라인블럭 단점: 여백 생김 */
+      .box {
+        float: left;
+        width: 100px;
+        height: 100px;
+        border: 3px solid #000;
+        text-align: center;
+        line-height: 100px;
+      }
+    </style>
+  </he
+  <body>
+    <h1>Float</h1>
+    <img src="./dog01.jpg" alt="개" class="dog" />
+    <img src="./dog02.jpg" alt="개" class="dog2" />
+    <p>float 속성의 방향을 left,right로 지정하면 요소가 떠있는 상태가 된다.</p>
+    <p>
+      clear 라는 속성을 통해 float을 해제할 수 있다. <br />
+      float된 요소의 다음 요소에 사용한다
+    </p>
+    <p class="content"></p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit natus
+      quibusdam architecto, odit nostrum magni officiis harum praesentium veniam
+      id, excepturi blanditiis. Adipisci assumenda dolorum sed itaque eum ullam
+      incidunt facilis quod, mollitia illo nihil soluta saepe iure error. Ipsam
+      nostrum velit consequuntur, debitis facere dolores unde minus eligendi
+      consectetur sint recusandae doloribus non culpa aliquid consequatur atque
+      expedita necessitatibus eveniet fugiat, cumque porro possimus dolore enim.
+      Rem ipsam quo culpa aut odio voluptatum ea cum minima! Accusantium
+      numquam, id ab perferendis nesciunt incidunt earum praesentium veritatis
+      nisi exercitationem soluta atque officiis ipsa odio libero ullam iure
+      labore debitis dolore. Lorem ipsum dolor sit, amet consectetur adipisicing
+      elit. Suscipit, distinctio? Nostrum alias a distinctio reiciendis vero
+      facilis, totam aut voluptates. Reprehenderit quo praesentium at nulla
+      explicabo perspiciatis id fugiat architecto? Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Consequuntur libero voluptates doloremque
+      inventore cupiditate? Accusamus voluptas debitis sequi expedita fugiat?
+    </p>
+    <h2>float 응용</h2>
+    <p>
+      같은 방향으로 float 된 요소는 가로 방향으로 나열된다. float된 요소는
+      inline-block과 비슷하게 동작한다.
+    </p>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <span class="box">inline</span>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, iure nobis
+      aut impedit blanditiis recusandae enim illo? Culpa quod sequi repellendus
+      soluta. Ipsum possimus error nisi hic. Modi, qui veritatis.
+    </p>
+  </body>
+</html>

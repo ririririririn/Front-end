@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .box01 {
+      animation-name: scaleUp;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      animation-timing-function: linear;
+      margin-bottom: 100px;
+    }
+    @keyframes scaleUp {
+      from {
+        transition: scale(1);
+      }
+      to {
+        transform: scale(1.5);
+      }
+    }
+
+    .box02 {
+      background-color: tomato;
+      animation: slide 1s 1s;
+    }
+
+    @keyframes slide {
+      to {
+        color: red;
+        transform: translateX(100px) scale(1.5);
+      }
+    }
+  </style>
+  <body>
+    <h1>animaiton</h1>
+    <p>
+      애니메이션을 정의한 후 재생여부, 방향, 횟수 등 구체적으로 애니메이션을
+      실행할 수 있다. <br />
+      값의 변화가 있을 때 적용되는 transition과 다르게 자유롭게 제어할 수 있다.
+      <br />
+    </p>
+    <p>@keyframes를 통해 애니메이션을 정의 한다.</p>
+    <p>
+      시작점과 끝점만 필요하다면 from 과 to로 지정할 수 있다 <br />시작점이 원래
+      요소와 같다면 생략 가능
+    </p>
+    <p>%를 통해서 구체적인 구간을 정할 수 있다.</p>
+    <div class="box box01"></div>
+    <div class="box box02"></div>
+  </body>
+</html>

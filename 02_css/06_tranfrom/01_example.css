@@ -1,0 +1,39 @@
+/* 기본스타일제거 */
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+/* navbar */
+.gnbList {
+  background-color: beige;
+}
+.gnbList li {
+  display: inline-block;
+  /* float: left; */
+}
+
+.gnbList li a {
+  display: block;
+  padding: 10px 0px;
+  width: 100px;
+}
+.dogimg {
+  background-color: tomato;
+}
+.dogimg li {
+  display: inline-block;
+  width: 120px;
+}

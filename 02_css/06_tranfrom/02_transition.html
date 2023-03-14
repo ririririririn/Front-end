@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transition</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(50, 205, 50);
+      transition-delay: 0.3s;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+    }
+    .box:hover {
+      background-color: rgb(255, 69, 0);
+      border-radius: 50%;
+    }
+  </style>
+  <body>
+    <h1>transition</h1>
+    <p>
+      요소의 CSS 속성값에 변화가 있을 때, 변화되는 시간, 폭, 지연시간 등을
+      지정할 수 있다. <br />
+      hover 에 transition을 하면 마우스 올렸을 때만, .box에 주면 올렸다 내렸다
+      샹관없이 변함
+    </p>
+    <ul>
+      <li>transition-property: 트랜지션 적용할 속성을 선택한다. 기본값 all</li>
+      <li>transition-duration: 지속 시간을 지정한다</li>
+      <li>transition-delay: 트랜지션의 지연시간을 지정한다</li>
+      <li>transition-timing-function: 트랜지션의 변화 폭을 지정한다.</li>
+      <li>transition: 단축 속성. 순서 duration과 delay 순으로, 나머지 상관x</li>
+    </ul>
+    <div class="box"></div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+/* 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* header */
+
+#gnb {
+}
+
+.gnbList {
+  text-align: center;
+  background-color: beige;
+}
+
+.gnbList li {
+  display: inline-block;
+}
+
+.gnbList li a {
+  display: block;
+  width: 100px;
+  padding: 10px 0;
+}
+
+.imgList {
+  width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.imgList li {
+  float: left;
+}
+.imgList li + li {
+  margin-left: 10px;
+}
+.imgList li a {
+  display: block;
+  width: 100px;
+  height: 150px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.imgList ul li {
+  background: center / auto 100% no-repeat;
+  transition: background-size 0.4s;
+}
+.imgList ul li:nth-of-type(1) {
+  background-image: url("../04_layout/dog01.jpg");
+}
+.imgList ul li:nth-of-type(2) {
+  background-image: url("../04_layout/dog02.jpg");
+}
+.imgList ul li:nth-of-type(3) {
+  background-image: url("../04_layout/dog03.jpg");
+}
+
+.imgList ul li:hover {
+  background-size: auto 120%;
+  transition: background-size 0.4s;
+}

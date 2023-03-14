@@ -1,0 +1,85 @@
+.container {
+  float: left;
+}
+.translate {
+}
+.skew {
+  clear: both;
+}
+/* 박스 기본 크기 */
+.box {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  text-align: center;
+  line-height: 100px;
+}
+/* 가상요소 선택자 ------------------------ */
+/* box 클래스를 가진 요소 중 첫번째인 */
+/* .box:nth-child(3) === */
+/* .box:nth-of-type(1) {
+  margin-top: 0px;
+} */
+
+/* 첫번째 .box 빼고 적용 가능 */
+.box + .box {
+  margin-top: 70px;
+}
+.div {
+  clear: both;
+}
+/* ------------------------------------- */
+
+/* translate */
+.translate .box.x:hover {
+  transform: translateX(50%);
+}
+
+.translate .box.x:hover {
+  transform: translateY(-50px);
+}
+
+.translate .box.xy:hover {
+  transform: translate(30px, -40px);
+}
+.translate .box.z:hover {
+  transform: translateZ(45px);
+
+  color: red;
+}
+/* scale */
+.rotate {
+  perspective: 300px;
+}
+.scale .box.x:hover {
+  transform: scaleX(-0.1);
+}
+.scale .box.y:hover {
+  transform: scaleY(1.2);
+  transform-origin: top;
+}
+.scale .box.xy:hover {
+  transform: scale(1.6);
+}
+
+.rotate .box.x:hover {
+  transform: rotateX(45deg);
+}
+.rotate .box.y:hover {
+  transform: rotateY(-45deg);
+  transform-origin: left;
+}
+.rotate .box.z:hover {
+  transform: rotate(50deg);
+}
+
+.skew .box.x:hover {
+  transform: skew(45deg);
+}
+.skew .box.y:hover {
+  transform: skew(-45deg);
+  transform-origin: left;
+}
+.skew .box.z:hover {
+  transform: skew(50deg);
+}

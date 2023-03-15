@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* main */
+main{
+  display: flex;
+  justify-content: center;
+  
+}
+
+#container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 350px;
+  
+
+
+}
+/* 박스1 */
+.loginBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  border: 1px solid grey;
+  width: 100%;
+  
+}
+
+.logo{
+  margin-top: 60px;
+  margin-bottom: 50px;
+  background: url(./assets/logo.png) 0 -52px;
+  width: 175px ;
+  height: 51px;
+}
+
+#loginForm{
+display: flex;
+flex-direction: column;}
+
+#loginForm input{
+  width: 267px;
+  height: 36px;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+#loginForm button{
+  height: 36px;
+  margin: 5px 0;
+}
+
+/* 박스2 */
+#signUpBox{
+  border: 1px solid #000;
+  text-align: center;
+  width: 100%;
+}
+
+
+img{width: 100px;}
+
+/* 앱 다운로드 */
+#appDownArea{
+  text-align: center;
+
+}
+
+#appDownArea span{
+  display: block;
+}
+
+
+/* 푸터 */
+
+#footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.footer_1{
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+.footer_1 li{
+}
+.footer_2{
+  display: flex;
+}

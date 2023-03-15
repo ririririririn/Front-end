@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid-layout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 100px 1fr 100px;
+
+        grid-template-areas:
+          "header header"
+          "sidebar main"
+          "footer footer";
+      }
+      /* .header {
+        background-color: tomato;
+        grid-column: 1 / span 2;
+      }
+      .sidebar {
+        background-color: beige;
+        grid-column: 1;
+      }
+      .main {
+        background-color: skyblue;
+        grid-column: 2;
+      }
+      .footer {
+        background-color: yellowgreen;
+        grid-column: 1 / span 2;
+      } */
+
+      .header {
+        grid-area: header;
+      }
+      .sidebar {
+        grid-area: sidebar;
+      }
+      .main {
+        grid-area: main;
+      }
+      .footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h2>헤더</h2></div>
+      <div class="sidebar">
+        <h2>사이드바</h2>
+      </div>
+      <div class="main">
+        <h2>메인</h2>
+      </div>
+      <div class="footer"><h2>푸터</h2></div>
+    </div>
+  </body>
+</html>

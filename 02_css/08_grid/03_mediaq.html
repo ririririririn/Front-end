@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미디어쿼리</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    ul {
+      list-style: none;
+    }
+
+    #gnb {
+      background-color: beige;
+    }
+    header .gnbList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gnbList li {
+      width: 80px;
+      margin: 10px 10px;
+    }
+    .gnbList li a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      padding: 20px 20px;
+      background-color: tomato;
+      text-align: center;
+      border-radius: 50px;
+      color: wheat;
+      font-size: 3vh;
+    }
+    .gnbList li a:hover {
+      background-color: blue;
+    }
+    .box {
+      background-color: rgb(226, 175, 139);
+      width: 100%;
+      height: 400px;
+      color: white;
+    }
+    @media screen and (max-width: 900px) {
+      .box {
+        background-color: #000;
+        height: 100vh;
+      }
+    }
+    @media screen and (max-height: 400px) {
+      .box {
+        background-color: greenyellow;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      header .gnbList {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <nav id="gnb">
+        <ul class="gnbList">
+          <li><a href="#none">html</a></li>
+          <li><a href="#none">css</a></li>
+          <li><a href="#none">js</a></li>
+        </ul>
+      </nav>
+      <div class="box">안녕 클레오파트라 세상에서 제일가는 포테이토칩</div>
+    </header>
+  </body>
+</html>

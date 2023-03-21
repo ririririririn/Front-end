@@ -15,7 +15,7 @@
         background-color: beige;
         text-align: center;
       }
-
+     
       .liStyle {
         list-style: none;
       }
@@ -35,12 +35,16 @@
       let ul = document.querySelector("ul"); //ul
       let btnSubmit = document.querySelector(".btnSubmit"); //등록버튼
 
-      let li = document.createElement("li"); //li 만들기!!!!!!!!!!!!!
-      let liStyleNode = document.createAttribute("class"); // li클래스 만들기
-      li.setAttributeNode(liStyleNode); //li에 클래스 붙이기????
-      liStyleNode.value = "liStyle"; //리스트 스타일 클래스 이름 지정해주기
-
-      let btnDel = document.querySelector(".btnDel");
+      // let span = document.createElement('span') //span
+      // let li = document.createElement("li"); //li 만들기!!!!!!!!!!!!!
+      // let btnDel = document.createElement('button');// 버튼 만들기
+      // btnDel.innerText = '삭제'
+      
+      // 위를 listCreate 함수안에 넣지않으면 값만 바뀌고 li 가 추가가 안된다.
+      //  하지만 함수 안에 넣으면 클릭할때마다 새로운 요소들이 추가가 된다
+      // 그러면 btnDel 은 어떻게 실행하는지???
+      // listCreate 함수 안에 btnDel 이 있고, 그 안에서 addEventListener 을 해준다!!
+      
       // ul 밑에 li 만들기
 
       btnSubmit.addEventListener("click", listCreate);
@@ -51,16 +55,27 @@
           alert("할일 적자");
           return;
         }
-        ul.appendChild(li); // ul 밑에 자식으로 데려온거 //필요가 없네??????
-        li.innerHTML += `<li>${input.value}<button class="btnDel">삭제</button></li>`;
-        // 인풋에 쓴게 li로
+        let span = document.createElement('span') //span
+        let li = document.createElement("li"); //li 만들기!!!!!!!!!!!!!
+        let btnDel = document.createElement('button');// 버튼 만들기
+        btnDel.innerText = '삭제'
+        ul.appendChild(li);// ul 밑에 li
+        li.appendChild(span); // li 밑에  span
+        li.appendChild(btnDel);// li 밑에 button
+        span.innerText = input.value;
+        btnDel.addEventListener('click',delTodo);
+
+     //   li.innerHTML += `<li>${input.value}<button class="btnDel">삭제</button></li>`; // 인풋에 쓴게 li로 (수업시간 코드)
         input.value = ""; // input 비워주기
       }
-      btnDel.addEventListener("click", listDel);
 
-      /*       function listDel(){
+      function delTodo(event){
+        const li = event.target.parentElement;
+        li.remove();
         
-      } */
+      }
+
+
     </script>
   </body>
 </html>

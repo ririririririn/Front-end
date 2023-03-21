@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: beige;
+        border: 1px solid #000000;
+      }
+
+      .todo li.active {
+        font-weight: 700;
+        text-decoration: line-through;
+        color: #858585;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <button data-bg-color="tomato">tomato</button>
+    <button data-bg-color="#3199df">blue</button>
+    <button data-bg-color="#f8e074">yellow</button>
+    <button data-bg-color="#27c970">green</button>
+
+    <h2>To Do List</h2>
+    <ul class="todoList">
+      <li class="active">html 공부하기</li>
+      <li>css 공부하기</li>
+      <li>js 공부하기</li>
+    </ul>
+
+    <div>
+      <input type="text" />
+      <button class="btnChange">변경</button>
+    </div>
+  </body>
+  <script>
+    let box = document.querySelector(".box");
+    let btnList = document.querySelectorAll("button");
+
+    // let colorList = ["tomato", "#3199df", "#f8e074", "#27c970"];
+
+    /*     btnList[0].addEventListener("click", function () {
+      box.style.backgroundColor = colorList[0];
+    });
+    btnList[1].addEventListener("click", function () {
+      box.style.backgroundColor = "#3199df";
+    });
+    btnList[2].addEventListener("click", function () {
+      box.style.backgroundColor = "#f8e074";
+    }); */
+
+    for (let i = 0; i < btnList.length; i++) {
+      btnList[i].addEventListener("click", function (e) {
+        // box.style.backgroundColor = colorList[i];
+        box.style.backgroundColor = e.target.dataset.bgColor;
+        /*
+            e.target.dataset
+            -html 태그에 data- 라는 접두사를 붙인 속성값들을 포함하고 있다
+              =>data- 라는 접두사는 사라지고 뒷부분은 '-' 표시를 기준으로 카멜케이스로 만들어진다.
+        */
+      });
+    }
+
+    /* 클래스 목록 추가 및 제거
+        -요소.classList 요소가 가지고 있는 클래스 목록
+        -
+
+
+
+    */
+
+    let todoList = document.querySelectorAll(".todo li");
+
+    for (let i = 0; i < todoList.length; i++) {
+      todoList[i].addEventListener("click", function (e) {
+        if (e.target.classList.contains("active"))
+          e.target.classList.contains("active");
+        else {
+          e.target.classList.add("active");
+        }
+      });
+    }
+
+    // 인풋요소.value : 인풋 태그가 가진 값
+
+    let inputColor = document.querySelector("input");
+    let button = document.querySelector(".btnChange");
+
+    button.addEventListener("click", function () {
+      box.style.backgroundColor = inputColor.value;
+    });
+
+    inputColor.value; // input 태그의 입력값
+    console.log(inputColor.value);
+  </script>
+</html>

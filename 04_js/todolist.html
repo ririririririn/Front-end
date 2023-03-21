@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+      }
+      .container {
+        margin: 0 auto;
+        width: 600px;
+        height: 800px;
+        background-color: beige;
+        text-align: center;
+      }
+
+      .liStyle {
+        list-style: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>To-Do List</h2>
+      <input type="text" />
+      <button class="btnSubmit">등록</button>
+      <ul></ul>
+    </div>
+    <script>
+      let container = document.querySelector("container"); //컨테이너
+      let input = document.querySelector("input"); // 인풋
+      let ul = document.querySelector("ul"); //ul
+      let btnSubmit = document.querySelector(".btnSubmit"); //등록버튼
+
+      let li = document.createElement("li"); //li 만들기!!!!!!!!!!!!!
+      let liStyleNode = document.createAttribute("class"); // li클래스 만들기
+      li.setAttributeNode(liStyleNode); //li에 클래스 붙이기????
+      liStyleNode.value = "liStyle"; //리스트 스타일 클래스 이름 지정해주기
+
+      let btnDel = document.querySelector(".btnDel");
+      // ul 밑에 li 만들기
+
+      btnSubmit.addEventListener("click", listCreate);
+
+      /* 리스트 만들기 */
+      function listCreate() {
+        if (input.value === "") {
+          alert("할일 적자");
+          return;
+        }
+        ul.appendChild(li); // ul 밑에 자식으로 데려온거 //필요가 없네??????
+        li.innerHTML += `<li>${input.value}<button class="btnDel">삭제</button></li>`;
+        // 인풋에 쓴게 li로
+        input.value = ""; // input 비워주기
+      }
+      btnDel.addEventListener("click", listDel);
+
+      /*       function listDel(){
+        
+      } */
+    </script>
+  </body>
+</html>

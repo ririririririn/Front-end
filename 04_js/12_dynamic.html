@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS dynamic</title>
+    <style>
+      ul {
+        background-color: beige;
+      }
+      ul > li {
+        box-shadow: grey 1px 1px;
+      }
+      body {
+        margin: 0 auto;
+      }
+      .container {
+        width: 500px;
+        margin: 0 auto;
+        background-color: bisque;
+        border: 1px solid #000;
+        text-align: center;
+        display: flex;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+      }
+      .todoList li.active {
+        color: #ccc;
+        font-weight: bold;
+        text-decoration: line-through;
+      }
+
+      .btn_delete {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>동적 사이트</h1>
+    <button class="btnCreat">박스 만들기</button>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+    <div>
+      <input type="text" class="inputToto" />
+      <button class="btnSubmit">등록</button>
+      <ul class="todoList">
+        <li>할일 <button class="btnDelete">삭제</button></li>
+      </ul>
+    </div>
+
+    <script>
+      let containerElem = document.querySelector(".container");
+
+      //요소 노드 생성 - 어떠한 요소인지 나타내는 노트
+      // document.creatElment('요소의 종류(태그)')
+      let divElem = document.createElement("div");
+
+      // 생성한 노드를 문서에 나타내기
+      // Element.append : 자식 노드를 나타낸다.
+      containerElem.appendChild(divElem);
+
+      //속성 노드 생성
+      let classNode = document.createAttribute("class");
+      //속성 노드 나타내기.
+      divElem.setAttributeNode(classNode);
+      classNode.value = "box";
+
+      let textNode = document.createTextNode("박스");
+      divElem.appendChild(textNode);
+      //------------------------------------------------------------------
+      let btnElem = document.querySelector(".btnCreat");
+      btnElem.addEventListener("click", creatBox);
+      function creatBox() {
+        let boxElem = document.createElement("div");
+        let textNode = document.createTextNode("박스");
+        let classNode = document.createAttribute("class");
+        classNode.value = "box";
+
+        // boxElem.classList.add("box");
+        // boxElem.setAttribute("class", "box");
+        boxElem.appendChild(textNode);
+        boxElem.setAttributeNode(classNode);
+
+        containerElem.appendChild(boxElem);
+      }
+
+      //---------------------------------------------------------------------
+      /*       let boxElem1 = document.querySelector("div");
+        boxElem1.addEventListener("click", function () {
+          let ok = confirm("진짜 삭제할거야?");
+          if (ok) {
+            //boxElem1.remove(); //메모리에서 아예 삭제
+            containerElem.removeChild(boxElem1);
+            //dom트리에서 부모-자식을 끊는다. 해당 노드를 반환한다.
+          }
+        }); */
+
+      //--투두-----------------------------------------------------------------
+      let inputToto = document.querySelector(".inputToto");
+      let btnSubmit = document.querySelector(".btnSubmit");
+      let todoList = document.querySelector(".todoList");
+      let btnDelete = document.querySelector(".btnDelete");
+
+      btnSubmit.addEventListener("click", creatTodo); ///// 나쁜 방식!!!!!!!!!!!!!!
+
+      function creatTodo() {
+        if (inputToto.value === "") {
+          alert("할 일 뭐야!");
+          return;
+        }
+        console.log(inputToto.value);
+        console.log(todoList.innerText); // 요소 안에 있는 텍스트 노드를 읽는다.
+        //todoList.innerText = `<li>${inputToto.value}</li>`;
+        // 텍스트 노드의 값을 변경해버림. 기존의 자식 노드를 지우고 li 사라짐
+        // <li>${inputToto.value}</li> 써도 태그가 아니라 텍스트로 인식
+        console.log(todoList.innerHTML);
+        // 자식으로 포함되어있는 노드들을 요소노드까지 포함해서 문자열로 파싱한다  html
+        // todoList.innerHTML = `<li>${inputToto.value}</li>`;
+        // 문자열을 html 요소로 파싱해서 값을 변경한다.
+        todoList.innerHTML += `<li>${inputToto.value}
+          <button class="btnDelete">삭제</button> </li>`;
+
+        // 등록이 끝난 후
+        inputToto.value = "";
+        inputToto.focus();
+      }
+
+      /*
+        이벤트 위임
+          - 이벤트가 상위 요소로 전파되는 점을 이용해서, 상위 요소에서 한 번에 처리할 수 있다.
+       */
+
+      todoList.addEventListener("click", function (e) {
+        console.log("e.target : ", e.target);
+        console.log("e.currentTarget : ", e.currentTarget);
+
+        if (e.target.matches(".todoList li")) {
+          // 글씨가 #ccc 취소선, 굵게표시
+
+          e.target.classList.toggle("active");
+        } else if (e.target.matches(".todoList li .btnDelete")) {
+          let ok = confirm("정말 삭제할거야?");
+          if (ok) {
+            e.target.parentElement.remove();
+          }
+
+          // 삭제버튼 클릭 시 ' 정말 삭제하시겠습니까?' 확인창 출력
+        }
+      });
+
+      /*       function check(e) {
+        if (e.target.matches(".todoList li .btnDelete")) {
+          alert("정말 삭제할거야?");
+        }
+      }
+      btnDelete.addEventListener("click", check); */
+    </script>
+  </body>
+</html>

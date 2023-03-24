@@ -1,4 +1,4 @@
-let btnList = document.querySelectorAll(".btns button");
+/* let btnList = document.querySelectorAll(".btns button");
 let slideList = document.querySelector(".slideList");
 let btnSlideList = document.querySelectorAll(".btnSlide");
 
@@ -11,7 +11,7 @@ btnList.forEach((btn, idx) => {
     slideList.style.transform = `translate(${index * -100}%)`;
   });
 });
-
+ */
 // 이전 버튼 1씩 감소, 다음 버튼 1씩 증가 => 출력하기
 // btnSlideList[0].addEventListener("click", () => {
 //   alert(--index);
@@ -21,7 +21,7 @@ btnList.forEach((btn, idx) => {
 //   alert(++index);
 // });
 
-btnSlideList.forEach((btn) => {
+/* btnSlideList.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (btn.classList.contains("prev")) {
       // 단축 평가. 조건이 true일 때만 뒤에 평가(실행).
@@ -31,5 +31,22 @@ btnSlideList.forEach((btn) => {
     }
 
     slideList.style.transform = `translate(${index * -100}%)`;
+  });
+});
+
+ */
+
+let slideUl = document.querySelector(".slideList");
+let slideLi = document.querySelectorAll(".slideList li");
+let btn = document.querySelectorAll(".btns button");
+// console.log(slideList.style);
+
+// slideLi.addEventListener("click", console.log("by"));
+console.log(btn);
+
+btn.forEach(function (btn, index) {
+  btn.addEventListener("click", function () {
+    index;
+    slideUl.style.transform = `translate(${index * -100}%)`;
   });
 });

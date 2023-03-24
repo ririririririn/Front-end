@@ -8,9 +8,20 @@
   </head>
   <body>
     <h1>끝말 잇기</h1>
-    <h3>키워드</h3>
-    <input type="text" />
-    <button>등록</button>
+    <h3 id="keyword">키워드</h3>
+    <input type="text" class="inputWord"/>
+    <button class="btnSubmit">등록</button>
   </body>
-  <script></script>
+  <script>
+    let keyword = document.getElementById('keyword');
+    let inputWord = document.querySelector('.inputWord')
+    let button = document.querySelector('.btnSubmit')
+
+    button.addEventListener('click',()=>{
+      inputWord.value
+    })
+
+
+
+  </script>
 </html>

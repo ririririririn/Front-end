@@ -1,22 +1,35 @@
-import Avatar from "./Avatar.jsx";
-
-function Card({ children }) {
-  return <div className="card">{children}</div>;
+function Item({ name, isPacked }) {
+  return <li className="item">{isPacked ? name + "✔" : name}</li>;
 }
 
-export default function Profile() {
+export default function PackingList() {
   return (
-    <Card>
-      <Avatar
-        size={100}
-        person={{
-          name: "Katsuko Saruhashi",
-          imageId: "YfeOqp2",
-        }}
-      />
-    </Card>
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        <Item isPacked={true} name="Space suit" />
+        <Item isPacked={true} name="Helmet with a golden leaf" />
+        <Item isPacked={false} name="Photo of Tam" />
+      </ul>
+    </section>
   );
 }
+
+/* 
+  
+   2. 컴포넌트 export/import
+  
+    - 루트 컴포넌트는 기본적으로 create-react-app으로 프로젝트를 만들면,
+      app.js가 루트 컴포넌트가 된다.
+      => index.js 가 가장 먼저 실행되고, 가장 먼저 렌더링 되는 컴포넌트가 app 컴포넌트이다.
+      =>  언제든 변경할 수 있다.
+    - export/import를 통해서 컴포넌트를 별도의 파일로 관리할 수 있다.
+      => export default 나 named export 둘 다 상관없지만,
+         핵심이 되는 컴포넌트는 export default  권장!
+      => named export 를 적절히 활용하면 하나의 파일에서 여러 컴포넌트를 내보낼 수 있다.
+
+
+*/
 
 /* 
     3.JSX (JavaScript and XML)
@@ -49,7 +62,7 @@ export default function Profile() {
 
          
         
-        /* Props
+        /* 5.Props
         
           - 같은 컴포넌트를 여러번 사용할 때 내용 등을 다르게 렌더링 할 수 있다.
           - 컴포넌트에 프로퍼티들을 나열하면 자식 컴포넌트의 첫번째 매개변수로 props 객체가 전달된다.
@@ -63,17 +76,10 @@ export default function Profile() {
         */
 
 /* 
-  
-   2. 컴포넌트 export/import
-  
-    - 루트 컴포넌트는 기본적으로 create-react-app으로 프로젝트를 만들면,
-      app.js가 루트 컴포넌트가 된다.
-      => index.js 가 가장 먼저 실행되고, 가장 먼저 렌더링 되는 컴포넌트가 app 컴포넌트이다.
-      =>  언제든 변경할 수 있다.
-    - export/import를 통해서 컴포넌트를 별도의 파일로 관리할 수 있다.
-      => export default 나 named export 둘 다 상관없지만,
-         핵심이 되는 컴포넌트는 export default  권장!
-      => named export 를 적절히 활용하면 하나의 파일에서 여러 컴포넌트를 내보낼 수 있다.
+    6. children 
+        -컴포넌트의 여는 태그와 닫는 태그 사이의 내용은 children 이라는 약속된 프로퍼티로 전달된다.
+          =>원하는 위치 작성하여 출력할 수 있다.
+
 
 
 */

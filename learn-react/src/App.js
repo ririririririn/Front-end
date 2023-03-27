@@ -1,3 +1,23 @@
+import Avatar from "./Avatar.jsx";
+
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+
+export default function Profile() {
+  return (
+    <Card>
+      <Avatar
+        size={100}
+        person={{
+          name: "Katsuko Saruhashi",
+          imageId: "YfeOqp2",
+        }}
+      />
+    </Card>
+  );
+}
+
 /* 
     3.JSX (JavaScript and XML)
       - 자바스크립트 마크업 언어를 포함시키기 위한 확장된 문법
@@ -41,10 +61,6 @@
         
         
         */
-        
-        
-            
-*/
 
 /* 
   

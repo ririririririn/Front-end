@@ -1,4 +1,4 @@
-function Profile() {
+export function Profile() {
   return <img src="https://i.imgur.com/MK3eW3Am.jpg" alt="Katherine Johnson" />;
 }
 // 다른 컴포넌트에서 사용할 수 있도록 export

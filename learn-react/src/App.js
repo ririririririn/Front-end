@@ -1,29 +1,3 @@
-const today = new Date();
-
-function formatDate(date) {
-  return new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(date);
-}
-
-export default function Avatar() {
-  const avatar = "https://i.imgur.com/7vQD0fPs.jpg";
-  const description = "Gregorio Y. Zara";
-  const title = "react";
-  return (
-    <>
-      <h1
-        style={{
-          color: "red",
-          fontWeight: "lighter",
-        }}
-      >
-        Hello {title}!
-      </h1>
-      <h2>오늘은 {formatDate(today)}</h2>
-      <img className="avatar" src={avatar} alt={description} />
-    </>
-  );
-}
-
 /* 
     3.JSX (JavaScript and XML)
       - 자바스크립트 마크업 언어를 포함시키기 위한 확장된 문법
@@ -55,7 +29,18 @@ export default function Avatar() {
 
          
         
+        /* Props
         
+          - 같은 컴포넌트를 여러번 사용할 때 내용 등을 다르게 렌더링 할 수 있다.
+          - 컴포넌트에 프로퍼티들을 나열하면 자식 컴포넌트의 첫번째 매개변수로 props 객체가 전달된다.
+            => key-value 형태로 전달된다.
+            => 매개변수에 {}를 사용하면 비구조화 할당이 되어 코드를 간소화 할 수 있다.
+          - 매개변수 기본값 문법을 사용하여 프로퍼티가 전달되지 않았을 때 기본값을 적용할 수 있다.
+          - 부모 컴포넌트가 받은 props 를 자식 컴포넌트한테 모두 전달할 때는 펼침 연산자를 통해서 간단하게 전달할 수 있다.
+        
+        
+        
+        */
         
         
             

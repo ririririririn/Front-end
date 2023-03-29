@@ -1,6 +1,12 @@
-export default function TodoList({ todos, removeTodo, toggleTodo }) {
+import { useEffect } from "react";
+
+function TodoList({ todos, removeTodo, toggleTodo }) {
   console.log(todos);
   // 넘어온 todos 렌더링하기
+
+  useEffect(() => {
+    console.log("렌더링");
+  });
 
   const itemList = todos.map((todo) => (
     <TodoItem
@@ -39,3 +45,5 @@ function TodoItem({ todo: { text, done, id }, toggleTodo, removeTodo }) {
     </li>
   );
 }
+
+export default React.memo(TodoList);

@@ -1,25 +1,20 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
 // src/components/TodoInput.jsx
-export default function TodoInput({ createTodo }) {
+export default function TodoInput({ createTodo, onChange }) {
   // text 상태 관리하기
-  const [text, setText] = useState("");
-
-  const handleText = (e) => {
-    setText(e.target.value);
-  };
+  // const [text, setText] = useState("");
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    createTodo(text);
+    createTodo();
     inputRef.current.focus();
-    setText("");
   };
-  const inputRef = useRef("");
+  const inputRef = useRef(null);
   return (
     <div>
       <form onSubmit={handlesubmit}>
-        <input type="text" onChange={handleText} ref={inputRef} value={text} />
+        <input type="text" onChange={onChange} ref={inputRef} />
         <button>등록</button>
       </form>
     </div>

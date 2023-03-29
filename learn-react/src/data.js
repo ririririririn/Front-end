@@ -1,3 +1,4 @@
+// src/data.js
 export const people = [
   {
     id: 0,

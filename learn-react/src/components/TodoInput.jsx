@@ -1,22 +1,30 @@
-import { useRef } from "react";
-
+import React, { useRef, useState } from "react";
+import { useTodoDispatch } from "../state/todos";
 // src/components/TodoInput.jsx
-export default function TodoInput({ createTodo, onChange }) {
-  // text 상태 관리하기
-  // const [text, setText] = useState("");
+function TodoInput() {
+  const [text, setText] = useState("");
+  const inputRef = useRef(null);
 
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    createTodo();
+  const dispatch = useTodoDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // form의 기본 기능 실행 x.
+    dispatch({ type: "CREATE_TODO", text: text });
     inputRef.current.focus();
   };
-  const inputRef = useRef(null);
+
   return (
     <div>
-      <form onSubmit={handlesubmit}>
-        <input type="text" onChange={onChange} ref={inputRef} />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          ref={inputRef}
+          onChange={(e) => setText(e.target.value)}
+        />
         <button>등록</button>
       </form>
     </div>
   );
 }
+
+export default React.memo(TodoInput);

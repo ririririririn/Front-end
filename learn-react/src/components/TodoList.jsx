@@ -1,43 +1,40 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useTodoDispatch, useTodoState } from "../state/todos";
 
-function TodoList({ todos, removeTodo, toggleTodo }) {
-  console.log(todos);
+function TodoList() {
   // 넘어온 todos 렌더링하기
 
+  const todos = useTodoState();
+
   useEffect(() => {
-    console.log("렌더링");
+    console.log("렌더링!");
   });
 
-  const itemList = todos.map((todo) => (
-    <TodoItem
-      key={todo.id}
-      todo={todo}
-      toggleTodo={toggleTodo}
-      removeTodo={removeTodo}
-    />
-  ));
+  const itemList = todos.map((todo) => <TodoItem key={todo.id} todo={todo} />);
 
   return (
     <div>
-      <ul>{itemList}</ul>
+      <ul>{itemList}</ul>{" "}
     </div>
   );
 }
 
 // 비구조화 할당 중첩 사용.
-function TodoItem({ todo: { text, done, id }, toggleTodo, removeTodo }) {
+function TodoItem({ todo: { text, done, id } }) {
+  const dispatch = useTodoDispatch();
+
   return (
     <li
-      onClick={() => toggleTodo(id)}
       style={{
         textDecoration: done && "line-through",
       }}
+      onClick={() => dispatch({ type: "TOGGLE_TODO", id })}
     >
       {text}
       <button
         onClick={(e) => {
           e.stopPropagation();
-          removeTodo(id);
+          dispatch({ type: "REMOVE_TODO", id });
         }}
       >
         삭제
@@ -46,4 +43,5 @@ function TodoItem({ todo: { text, done, id }, toggleTodo, removeTodo }) {
   );
 }
 
+// React.memo() : 부모 컴포너트에서 받는 prop에 변화가 있을 때만 재렌더링된다.
 export default React.memo(TodoList);

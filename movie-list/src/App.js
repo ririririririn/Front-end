@@ -1,32 +1,54 @@
-import { Link, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Detail from "./components/Detail";
-import Post from "./components/Post";
-import PostList from "./components/PostList";
+import SideBar from "./components/SideBar";
+import Main from "./components/Main";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { Route, Routes } from "react-router-dom";
+import Movie from "./components/Pages/Movie";
+import Home from "./components/Pages/Home";
+import TV from "./components/Pages/TV";
+import Person from "./components/Pages/Person";
+
+const GlobalStyle = createGlobalStyle`
+  *{padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+  a{
+    text-decoration: none;
+    color: inherit;   
+  }
+
+  li{
+    list-style: none;
+  }
+
+
+`;
 
 function App() {
+  console.log(process.env.REACT_APP_TMDB_API_KEY);
   return (
-    <>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about/*" element={<About />}>
-          <Route path="" element={<PostList />} />
-          <Route path="post" element={<Post />} />
-          <Route path=":id" element={<Detail />} />
-        </Route>
-      </Routes>
-    </>
+    <ThemeProvider theme={{ colors: { main: "#3f556c" } }}>
+      <GlobalStyle />
+      <Container>
+        <SideBar></SideBar>
+        <Main>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/movie/*" element={<Movie />}></Route>
+            <Route path="/tv/*" element={<TV />}></Route>
+            <Route path="/person/*" element={<Person />}></Route>
+          </Routes>
+        </Main>
+      </Container>
+    </ThemeProvider>
   );
 }
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+`;
 
 /* 
   react-router-dom

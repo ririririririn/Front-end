@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
   /* background-color: #fff; */
 `;

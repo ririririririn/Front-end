@@ -64,7 +64,9 @@ const menuList = [
 function SideBar() {
   return (
     <Container>
-      <Logo>NEPP MOVIE</Logo>
+      <Logo>
+        <a href="http://localhost:3000/">NEPP MOVIE</a>
+      </Logo>
       <UlContainer>
         {menuList.map((menu) => (
           <SideItem menu={menu} key={menu.id}></SideItem>

@@ -6,6 +6,8 @@ import Movie from "./components/Pages/Movie";
 import Home from "./components/Pages/Home";
 import TV from "./components/Pages/TV";
 import Person from "./components/Pages/Person";
+import DetailPage from "./components/Common/DetailPage";
+import Search from "./components/Pages/Search";
 
 const GlobalStyle = createGlobalStyle`
   *{padding:0;
@@ -34,9 +36,16 @@ function App() {
         <Main>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/movie/*" element={<Movie />}></Route>
-            <Route path="/tv/*" element={<TV />}></Route>
+            <Route path="/movie/*" element={<Movie />}>
+              <Route path=":id" element={<DetailPage />}></Route>
+            </Route>
+
+            <Route path="/tv/*" element={<TV />}>
+              <Route path=":id" element={<DetailPage />}></Route>
+              <Route path=":id" element={<DetailPage />}></Route>
+            </Route>
             <Route path="/person/*" element={<Person />}></Route>
+            <Route path="/search" element={<Search />}></Route>
           </Routes>
         </Main>
       </Container>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SideItem from "./SideItem";
+import { Link } from "react-router-dom";
 
 const menuList = [
   {
@@ -65,7 +66,7 @@ function SideBar() {
   return (
     <Container>
       <Logo>
-        <a href="http://localhost:3000/">NEPP MOVIE</a>
+        <Link to="/">NEPP MOVIE</Link>
       </Logo>
       <UlContainer>
         {menuList.map((menu) => (

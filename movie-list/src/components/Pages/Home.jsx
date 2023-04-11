@@ -1,7 +1,6 @@
 // import styled from "styled-components";
 
-import ContentList from "../Form/ContentList";
-import SearchBox from "../Form/SearchBox";
+import ContentList from "../home/ContentList";
 
 const filters = {
   trending: [
@@ -13,7 +12,6 @@ const filters = {
 function Home() {
   return (
     <div>
-      <SearchBox></SearchBox>
       <ContentList title="트렌딩" filterList={filters.trending}></ContentList>
     </div>
   );

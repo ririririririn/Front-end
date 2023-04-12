@@ -1,10 +1,10 @@
-import Todos from "./components/Todos";
-import Counter from "./components/Counter";
+import Moives from "./components/Movies";
+import TopRated from "./components/TopRated";
 function App() {
   return (
     <div>
-      <Counter></Counter>
-      <Todos></Todos>
+      {/*       <Moives></Moives> */}
+      <TopRated></TopRated>
     </div>
   );
 }

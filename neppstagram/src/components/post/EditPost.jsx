@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { createPost } from "../api/posts";
+import { createPost } from "../../api/posts";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 function EditPost() {

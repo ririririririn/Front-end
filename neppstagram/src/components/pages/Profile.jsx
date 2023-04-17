@@ -18,9 +18,8 @@ function Profile() {
   const handleProfile = (e) => {
     mutation.mutate(e.target.files[0]);
   };
-  if (isLoading) return;
 
-  console.log(data.data.name);
+  console.log(data);
   // const query = useQuery("/users/current", getCurrentUser);
   // console.log(query);
 
@@ -28,6 +27,8 @@ function Profile() {
     localStorage.removeItem("access-token");
     setToken(null);
   };
+  if (isLoading) return;
+
   return (
     <Container>
       <label>

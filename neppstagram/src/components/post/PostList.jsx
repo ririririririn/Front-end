@@ -1,9 +1,8 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-import { getPosts } from "../api/posts";
+import { getPosts } from "../../api/posts";
 
 function PostList() {
   const [page, setPage] = useState(1);
@@ -13,7 +12,6 @@ function PostList() {
     cacheTime: 5000,
     staleTime: 2000,
   });
-  console.log(data);
 
   if (isLoading) return;
   return (

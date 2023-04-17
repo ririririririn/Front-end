@@ -1,65 +1,71 @@
-import { useNavigate, useState } from "react-router-dom"
-import styled from "styled-components"
-import {login} from '../../api/auth'
-import useInputs from "../../hooks/useInputs"
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { login } from "../../api/auth";
+import useInputs from "../../hooks/useInputs";
+import { useSetRecoilState } from "recoil";
+import { tokenState } from "../../state/auth";
 
-export default function LoginForm(){
-  const navigate = useNavigate()
-  const [inputs,handleInputs] = useInputs({
-    name:'',
-    email:'',
-    password:'',
-    pwdVerify:'',
-  })
+export default function LoginForm() {
+  const [inputs, handleInputs] = useInputs({
+    email: "",
+    password: "",
+  });
 
-  const {name,email,password,pwdVerify} = inputs;
+  const navigate = useNavigate();
+  const setToken = useSetRecoilState(tokenState);
 
-
- const handleSubmit =(e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
- 
+    try {
+      const token = await login(inputs);
 
-    try{
-      const status = login(inputs);
-      console.log(status)
-      if(status === 200){
-        alert('로그인 성공')
-      navigate('/')}
-   }catch(e){console.log(e)}
- 
- 
-  }
-
-  return <div>
-    <Title>Login</Title>
-    <form onSubmit={handleSubmit}>
-      <InputWrapper>    
-        <input name='email' type="text" />
-        <input name='password' type="password" />
-      </InputWrapper>
-      <BtnWrapper>    
-        <button>Login</button>
-        <button onClick={()=>navigate('/auth/signup')}>회원가입</button>
-      </BtnWrapper>
-
-    </form>
-  </div>
+      if (token) {
+        setToken(token);
+        navigate("/");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  return (
+    <div>
+      <Title>Login</Title>
+      <form onSubmit={handleSubmit}>
+        <InputWrapper>
+          <input
+            type="text"
+            placeholder="이메일"
+            onChange={handleInputs}
+            name="email"
+          />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            onChange={handleInputs}
+            name="password"
+          />
+        </InputWrapper>
+        <BtnWrapper>
+          <button>로그인</button>
+          <button type="button" onClick={() => navigate("/auth/signup")}>
+            회원가입
+          </button>
+        </BtnWrapper>
+      </form>
+    </div>
+  );
 }
 
 const Title = styled.h2`
-text-align:center;
-
-`
+  text-align: center;
+`;
 
 const InputWrapper = styled.div`
-    display:flex;
-  flex-direction:column;
-`
-
+  display: flex;
+  flex-direction: column;
+`;
 
 const BtnWrapper = styled.div`
-    display:flex;
-  flex-direction:column;
-`
-
-
+  display: flex;
+  flex-direction: column;
+`;

@@ -22,7 +22,7 @@ export const updateProfile = async (file) => {
 };
 
 export const searchUser = async (name, page = 1) => {
-  if (name === "") return null;
+  if (name === "") return [];
   const { data } = await axiosInstance.get("users/search", {
     params: { name, page },
   });

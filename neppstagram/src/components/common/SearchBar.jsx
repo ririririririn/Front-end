@@ -5,11 +5,11 @@ import { useQuery } from "react-query";
 
 function SearchBar() {
   const [input, setInput] = useState("");
+
   const { data } = useQuery({
     queryKey: ["users/search", input],
     queryFn: () => searchUser(input, 1),
   });
-  console.log(data);
   searchUser("test", 1).then((res) => res.console);
 
   //디바운스 - 마지막 요청만 수행. 일정시간 내에 또 실행되면 기존 timeout 취소

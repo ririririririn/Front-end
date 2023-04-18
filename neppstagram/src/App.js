@@ -1,7 +1,7 @@
-import Auth from "./components/pages/Auth";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
+import Auth from "./components/pages/Auth";
 import Public from "./components/pages/Public";
 import SignUpForm from "./components/auth/SignUpForm";
 import Profile from "./components/pages/Profile";

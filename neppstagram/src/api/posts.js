@@ -10,10 +10,17 @@ export const getPosts = async (page = 1) => {
   return data;
 };
 export const getPostById = async ({ queryKey }) => {
-  console.log(queryKey[1]);
   const { data } = await axiosInstance.get("posts/" + queryKey[1]);
+
   return data;
 };
+
+// export const getPostByUserId = async ({ queryKey }) => {
+//   const { data } = await axiosInstance.get("posts/" + queryKey[1]);
+//   console.log(data);
+//   const userId = data.author.id;
+//   return userId;
+// };
 
 export const createPost = async (body, files) => {
   const form = new FormData();

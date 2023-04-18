@@ -9,9 +9,15 @@ import { axiosInstance } from ".";
 // });
 
 export const getCurrentUser = async () => {
-  const data = await axiosInstance.get("users/current", {});
+  const { data } = await axiosInstance.get("users/current", {});
   return data;
 };
+
+// export const getCurrentUserId = async () => {
+//   const { data } = await axiosInstance.get("users/current", {});
+//   const userId = data.id;
+//   return userId;
+// };
 
 export const updateProfile = async (file) => {
   const form = new FormData();

@@ -20,7 +20,6 @@ function App() {
       </Route>
       <Route path="/" element={<Public />}>
         <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<Post />}>
           <Route path="" element={<PostList />} />
           <Route path=":id" element={<PostDetail />} />
           <Route path="edit" element={<EditPost />} />

@@ -1,0 +1,25 @@
+	1. npm i -g firebase-tools
+	- firebase 배포 및 프로젝트 관련 편의 기능을 제공하는 cli 설치.
+
+	2. firebase login
+	-firebase에 로그인 한다
+
+	3.firebase init hosting
+	- 호스팅 서비스를 위해서 프로젝트를 초기화 한다.
+	- 어떤 폴더 배포할지 ? react는 기본적으로 build 폴더
+	- 나머지 원하는대로
+	
+
+	4. firebase deploy
+	- 지정한 폴더를 배포한다. 서버에 업로드한다.
+	- 최초로 배포할 때 배포할 폴더명으로 firebase가 폴더를 생성한다.
+	- react 프로젝트를 먼저 빌드하면 firebase가 덮어쓴다.
+	- 최초 deploy 후 npm run build를 통해서 다시 덮어쓴 뒤 다시 deploy 하면 된다.
+
+	 
+	서버리스 : 서버를 직접 구현하지 않고 제공되는 서비스들을 이용해서 백엔드 기능을 이용하는 것
+
+	1.firebase: 데이터베이스
+	2.storage: 파일 저장
+	3.authetication: 인증
+	4.hosting: 웹 호스팅

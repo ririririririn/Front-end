@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-export function useInputs() {
-  const [inputs, setInputs] = useState();
+export function useInputs(initialState) {
+  const [inputs, setInputs] = useState(initialState);
 
   const handleInputs = (e) => {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
-    console.log(inputs);
   };
   return [inputs, handleInputs];
 }

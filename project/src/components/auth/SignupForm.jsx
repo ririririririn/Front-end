@@ -9,13 +9,28 @@ function SignupForm() {
     name: "",
     email: "",
     password: "",
-    pwdVerify: "",
   });
 
   const handleSubmit = async (e) => {
-    const { name, eamil, password, pwdVerify } = inputs;
+    const { name, email, password, pwdVerify } = inputs;
     e.preventDefault();
-    signup(inputs);
+
+    // formData!
+    // const formData = new FormData(e.target);
+    // let entries = formData.entries();
+    // for (const pair of entries) {
+    //   if (pair[1] === "") {
+    //     alert(`${pair[0]} 칸을 입력해주세요.`);
+    //     return;
+    //   }
+    // }
+
+    if (password !== pwdVerify) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    signup(name, email, password);
   };
 
   return (

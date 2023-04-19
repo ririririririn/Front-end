@@ -1,10 +1,14 @@
+import axios from "axios";
 import { instance } from ".";
-export const signup = (name, email, password) => {
-  const status = instance.post("/users", {
+
+export const login = () => {};
+
+export const signup = async (name, email, password) => {
+  const data = await instance.post("/register", {
     name,
     email,
     password,
   });
-  console.log(status);
-  return status;
+  console.log(data);
+  return data;
 };

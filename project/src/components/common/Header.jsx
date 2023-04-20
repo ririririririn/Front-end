@@ -1,48 +1,55 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchBar from "./SearchBar";
-import Button from "./Button";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineUpload } from "react-icons/ai";
 import styled from "styled-components";
+
 function Header() {
   const [hidden, setHidden] = useState(true);
-  const toggleSearchBar = () => {
-    setHidden(!hidden);
+  const searchLiRef = useRef(null);
+
+  const toggleSearchBar = (e) => {
+    e.stopPropagation();
+
+    if (searchLiRef.current.contains(e.target)) {
+      setHidden(false);
+    } else {
+      setHidden(true);
+    }
   };
-  console.log(hidden);
+  window.addEventListener("click", toggleSearchBar);
 
   return (
     <>
       <Container>
         <HeaderWrapper>
           <Logo>
-            <Link to="/">로고</Link>
+            <Link to='/'>로고</Link>
           </Logo>
           <Nav>
-            <li>
+            <li ref={searchLiRef}>
               <SearchBar
                 style={{ display: !hidden ? "block" : "none" }}
               ></SearchBar>
-              <Button
-                onClick={toggleSearchBar}
-                innerText={<AiOutlineSearch size={25} />}
-              ></Button>
+              <button>
+                <AiOutlineSearch size={25} />
+              </button>
             </li>
             <li>
-              <Link to="/">
+              <Link to='/'>
                 <AiOutlineHome size={25} />
               </Link>
             </li>
             <li>
-              <Link to="">
+              <Link to=''>
                 <AiOutlineUpload size={25} />
               </Link>
             </li>
             <li>
-              <Link to="mypage">
+              <Link to='mypage'>
                 <AiOutlineUser size={25} />
               </Link>
             </li>

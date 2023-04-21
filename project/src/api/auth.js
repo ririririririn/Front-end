@@ -15,6 +15,7 @@ export const login = async (inputs) => {
 
   const token = data.access_token;
   console.log(token);
+
   instance.defaults.headers.Authorization = `Bearer ${token}`;
 
   localStorage.setItem("access-token", token);

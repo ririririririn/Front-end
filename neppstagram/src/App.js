@@ -6,7 +6,6 @@ import Public from "./components/pages/Public";
 import SignUpForm from "./components/auth/SignUpForm";
 import Profile from "./components/pages/Profile";
 import Home from "./components/pages/Home";
-import Post from "./components/pages/Post";
 import PostDetail from "./components/post/PostDetail";
 import EditPost from "./components/post/EditPost";
 import PostList from "./components/post/PostList";
@@ -20,12 +19,11 @@ function App() {
       </Route>
       <Route path="/" element={<Public />}>
         <Route path="/" element={<Home />} />
-          <Route path="" element={<PostList />} />
-          <Route path=":id" element={<PostDetail />} />
-          <Route path="edit" element={<EditPost />} />
-        </Route>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="" element={<PostList />} />
+        <Route path=":id" element={<PostDetail />} />
+        <Route path="edit" element={<EditPost />} />
       </Route>
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }

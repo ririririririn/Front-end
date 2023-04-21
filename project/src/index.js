@@ -4,11 +4,26 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyle from "./GlobalStyle";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter as Router } from "react-router-dom";
+
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0,
+    },
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <GlobalStyle />
-    <App />
+    <QueryClientProvider client={client}>
+      <Router>
+        <GlobalStyle />
+        <App />
+      </Router>
+    </QueryClientProvider>
   </>
 );
 

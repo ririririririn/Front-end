@@ -10,7 +10,7 @@ import styled from "styled-components";
 function Header() {
   const [hidden, setHidden] = useState(true);
   const searchLiRef = useRef(null);
-
+  // useEffect(() => {}, [searchLiRef]);
   const toggleSearchBar = (e) => {
     e.stopPropagation();
 
@@ -21,13 +21,12 @@ function Header() {
     }
   };
   window.addEventListener("click", toggleSearchBar);
-
   return (
     <>
       <Container>
         <HeaderWrapper>
           <Logo>
-            <Link to='/'>로고</Link>
+            <Link to="/">로고</Link>
           </Logo>
           <Nav>
             <li ref={searchLiRef}>
@@ -39,17 +38,17 @@ function Header() {
               </button>
             </li>
             <li>
-              <Link to='/'>
+              <Link to="/">
                 <AiOutlineHome size={25} />
               </Link>
             </li>
             <li>
-              <Link to=''>
+              <Link to="upload">
                 <AiOutlineUpload size={25} />
               </Link>
             </li>
             <li>
-              <Link to='mypage'>
+              <Link to="mypage">
                 <AiOutlineUser size={25} />
               </Link>
             </li>

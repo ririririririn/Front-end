@@ -52,6 +52,7 @@ const UploadBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 500px;
+
   /* border: 1px solid #000000; */
 `;
 
@@ -71,7 +72,8 @@ const InputLabel = styled.label`
 
 const ImageBox = styled.div`
   height: 400px;
-  border: 1px solid #eee;
+  border: px solid #eee;
+  background-color: #fff;
 `;
 
 const TextBox = styled.textarea`
